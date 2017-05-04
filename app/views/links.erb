@@ -8,3 +8,9 @@
   </li>
   <% end %>
 </ul>
+
+
+<h1> Tags </h1>
+    <% @tags.each do |tag| %>
+      <a href="../tag/<%= tag.tag_name %>"><%= tag.tag_name %></a>
+      <% end %>
