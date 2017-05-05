@@ -5,15 +5,15 @@ task :default do
   puts "Rake is up and running"
 end
 
-desc 'datamapper tasks' do
+desc 'datamapper tasks'
   namespace :db do
 
-    desc 'database auto_migrate' do
+    desc 'database auto_migrate'
       task :auto_migrate do
         DataMapper.auto_migrate!
       end
 
-    desc 'database auto_upgrade' do
+    desc 'database auto_upgrade'
       task :auto_upgrade do
         DataMapper.auto_upgrade!
       end
