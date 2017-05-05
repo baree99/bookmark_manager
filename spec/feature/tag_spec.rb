@@ -20,4 +20,13 @@ end
     click_link 'search'
       expect(page).to have_content 'google'
   end
+  scenario 'ability to add multiple tags' do
+    visit '/links/new'
+    fill_in 'new_url', with: 'bbc.co.uk'
+    fill_in 'new_title', with: 'BBC'
+    fill_in 'new_tag', with: 'news;sports'
+    click_button 'submit'
+    tags = [Link.all(:title => 'BBC').tags.first.tag_name, Link.all(:title => 'BBC').tags.last.tag_name]
+     expect(tags).to eq ['news', 'sports']
+  end
 end
